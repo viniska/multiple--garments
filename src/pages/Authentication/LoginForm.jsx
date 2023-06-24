@@ -178,6 +178,7 @@ const LoginForm = ({ setAuth }) => {
               type="submit"
               variant="contained"
               loading={isSubmitting}
+              onClick={()=>navigate("/dashboard")}
             >
               {isSubmitting ? "loading..." : "Login"}
             </LoadingButton>

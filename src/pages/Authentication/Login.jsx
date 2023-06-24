@@ -54,40 +54,12 @@ const Login = ({ setAuth }) => {
         <ContentStyle sx={{ boxShadow: "0 35px 45px rgba(0, 0, 0, 0.35)" }}>
           <HeadingStyle component={motion.div} {...fadeInUp}>
             <Typography>
-              <h1>Login</h1>
+              <h1>Admin Login</h1>
             </Typography>
           </HeadingStyle>
 
-          <LoginForm setAuth={setAuth} />
-
-          <Typography
-            component={motion.p}
-            {...fadeInUp}
-            variant="body2"
-            align="center"
-            sx={{ mt: 3 }}
-          >
-            Don’t have an account?{" "}
-            <Link variant="subtitle2" component={RouterLink} to="/register">
-              Sign up
-            </Link>
-          </Typography>
-
-          <Divider sx={{ my: 3 }} component={motion.div} {...fadeInUp}>
-            <Typography variant="body2" sx={{ color: "text.secondary" }}>
-              OR
-            </Typography>
-          </Divider>
-
-          <HeadingStyle component={motion.div} {...fadeInUp}>
-            <Typography sx={{ color: "text.secondary", mb: 5 }}>
-              Sign up using,
-            </Typography>
-          </HeadingStyle>
-
-          <Box component={motion.div} {...fadeInUp}>
-            {/* <SocialAuth /> */}
-          </Box>
+          <LoginForm setAuth={setAuth} />          
+          <br/>
         </ContentStyle>
       </Container>
     </RootStyle>

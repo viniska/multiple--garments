@@ -3,7 +3,7 @@ import { Layout } from 'antd';
 import { UpOutlined } from '@ant-design/icons';
 import { Fab } from '@mui/material';
 import Content from '../../UserPage/Content';
-import Branch from '../../UserPage/UserList/Branch/Branch';
+import Branch from '../../UserPage/Branch/Branch';
 
 import HeaderComponent from './Header/HeaderComponent';
 import SiderComponent from './Sider/SiderComponent';

@@ -4,8 +4,6 @@ import { UpOutlined } from '@ant-design/icons';
 import { Fab } from '@mui/material';
 import Content from '../../pages/Content';
 import AppForm from '../../pages/Application Form/AppForm';
-import Login from '../../pages/Authentication/Login';
-import Register from '../../pages/Authentication/Register';
 
 import HeaderComponent from './Header/HeaderComponent';
 import SiderComponent from './Sider/SiderComponent';
@@ -52,8 +50,6 @@ const MainStructure = () => {
           <AntdContent className="content" style={{ margin: '24px 16px', padding: 24, background: 'white', overflowY: 'auto' }}>
             {selectedMenuItem === '/dashboard' && <Content />}
             {selectedMenuItem === '/appform' && <AppForm />}
-            {selectedMenuItem === '/login' && <Login />}
-            {selectedMenuItem === '/register' && <Register />}
           </AntdContent>
           <Footer style={{ textAlign: 'center' }}>
             It is Under Construction®

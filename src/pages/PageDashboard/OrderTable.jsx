@@ -1,74 +1,72 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Box, Link, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, TextField, } from '@mui/material';
-import Dot from '../../components/@extended/Dot';
+import { Box, Link, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, } from '@mui/material';
 import { NumericFormat } from 'react-number-format';
 import { KeyboardArrowUp, KeyboardArrowDown } from '@mui/icons-material';
 import { Pagination } from 'antd';
 
 const showTotal = (total) => `Total ${total} items`;
 
-function createData(trackingNo, name, fat, carbs, protein) {
-  return { trackingNo, name, fat, carbs, protein };
+function createData(trackingNo, name, fat, protein) {
+  return { trackingNo, name, fat, protein };
 }
 
 const rowsPerPage = 10;
 const rows = [
-  createData(84564564, 'Rog Web Cam', 40, 2, 40570),
-  createData(98764564, 'Laptop', 300, 0, 180139),
-  createData(98756325, 'Mobile', 355, 1, 90989),
-  createData(98652366, 'Headset', 50, 1, 10239),
-  createData(13286564, 'Computer Accessories', 100, 1, 83348),
-  createData(86739658, 'Stream Deck', 99, 0, 410780),
-  createData(13256498, 'Keyboard', 125, 2, 70999),
-  createData(98753263, 'Mouse', 89, 2, 10570),
-  createData(98753275, 'Desktop', 185, 1, 98063),
-  createData(98753291, 'Gaming Chair', 100, 0, 14001),
-  createData(98652366, 'Headset', 50, 1, 10239),
-  createData(86739658, 'Stream Deck', 99, 0, 410780),
-  createData(13256498, 'Keyboard', 125, 2, 70999),
-  createData(98753263, 'Mouse', 89, 2, 10570),
-  createData(98753275, 'Desktop', 185, 1, 98063),
-  createData(98753291, 'Gaming Chair', 100, 0, 14001),
-  createData(98652366, 'Headset', 50, 1, 10239),
-  createData(84564564, 'Rog Web Cam', 40, 2, 40570),
-  createData(98764564, 'Laptop', 300, 0, 180139),
-  createData(98756325, 'Mobile', 355, 1, 90989),
-  createData(13286564, 'Computer Accessories', 100, 1, 83348),
-  createData(86739658, 'Stream Deck', 99, 0, 410780),
-  createData(13256498, 'Keyboard', 125, 2, 70999),
-  createData(98753263, 'Mouse', 89, 2, 10570),
-  createData(98753275, 'Desktop', 185, 1, 98063),
-  createData(98753291, 'Gaming Chair', 100, 0, 14001),
-  createData(84564564, 'Rog Web Cam', 40, 2, 40570),
-  createData(98764564, 'Laptop', 300, 0, 180139),
-  createData(98756325, 'Mobile', 355, 1, 90989),
-  createData(13286564, 'Computer Accessories', 100, 1, 83348),
-  createData(86739658, 'Stream Deck', 99, 0, 410780),
-  createData(13256498, 'Keyboard', 125, 2, 70999),
-  createData(98753263, 'Mouse', 89, 2, 10570),
-  createData(98753275, 'Desktop', 185, 1, 98063),
-  createData(98753291, 'Gaming Chair', 100, 0, 14001),
-  createData(98652366, 'Headset', 50, 1, 10239),
-  createData(84564564, 'Rog Web Cam', 40, 2, 40570),
-  createData(98764564, 'Laptop', 300, 0, 180139),
-  createData(98756325, 'Mobile', 355, 1, 90989),
-  createData(13286564, 'Computer Accessories', 100, 1, 83348),
-  createData(86739658, 'Stream Deck', 99, 0, 410780),
-  createData(13256498, 'Keyboard', 125, 2, 70999),
-  createData(98753263, 'Mouse', 89, 2, 10570),
-  createData(98753275, 'Desktop', 185, 1, 98063),
-  createData(98753291, 'Gaming Chair', 100, 0, 14001),
-  createData(86739658, 'Stream Deck', 99, 0, 410780),
-  createData(13256498, 'Keyboard', 125, 2, 70999),
-  createData(98753263, 'Mouse', 89, 2, 10570),
-  createData(98753275, 'Desktop', 185, 1, 98063),
-  createData(98753291, 'Gaming Chair', 100, 0, 14001),
-  createData(84564564, 'Rog Web Cam', 40, 2, 40570),
-  createData(98764564, 'Laptop', 300, 0, 180139),
-  createData(98756325, 'Mobile', 355, 1, 90989),
-  createData(98652366, 'Headset', 50, 1, 10239),
-  createData(13286564, 'Computer Accessories', 100, 1, 83348)
+  createData(84564564, 'Rog Web Cam', 40, 40570),
+  createData(98764564, 'Laptop', 300, 180139),
+  createData(98756325, 'Mobile', 355, 90989),
+  createData(98652366, 'Headset', 50, 10239),
+  createData(13286564, 'Computer Accessories', 100, 83348),
+  createData(86739658, 'Stream Deck', 99, 410780),
+  createData(13256498, 'Keyboard', 125, 70999),
+  createData(98753263, 'Mouse', 89, 10570),
+  createData(98753275, 'Desktop', 185, 98063),
+  createData(98753291, 'Gaming Chair', 100, 14001),
+  createData(98652366, 'Headset', 50, 10239),
+  createData(86739658, 'Stream Deck', 99, 410780),
+  createData(13256498, 'Keyboard', 125, 70999),
+  createData(98753263, 'Mouse', 89, 10570),
+  createData(98753275, 'Desktop', 185, 98063),
+  createData(98753291, 'Gaming Chair', 100, 14001),
+  createData(98652366, 'Headset', 50, 10239),
+  createData(84564564, 'Rog Web Cam', 40, 40570),
+  createData(98764564, 'Laptop', 300, 180139),
+  createData(98756325, 'Mobile', 355, 90989),
+  createData(13286564, 'Computer Accessories', 100, 83348),
+  createData(86739658, 'Stream Deck', 99, 410780),
+  createData(13256498, 'Keyboard', 125, 70999),
+  createData(98753263, 'Mouse', 89, 10570),
+  createData(98753275, 'Desktop', 185, 98063),
+  createData(98753291, 'Gaming Chair', 100, 14001),
+  createData(84564564, 'Rog Web Cam', 40, 40570),
+  createData(98764564, 'Laptop', 300, 180139),
+  createData(98756325, 'Mobile', 355, 90989),
+  createData(13286564, 'Computer Accessories', 100, 83348),
+  createData(86739658, 'Stream Deck', 99, 410780),
+  createData(13256498, 'Keyboard', 125, 70999),
+  createData(98753263, 'Mouse', 89, 10570),
+  createData(98753275, 'Desktop', 185, 98063),
+  createData(98753291, 'Gaming Chair', 100, 14001),
+  createData(98652366, 'Headset', 50, 10239),
+  createData(84564564, 'Rog Web Cam', 40, 40570),
+  createData(98764564, 'Laptop', 300, 180139),
+  createData(98756325, 'Mobile', 355, 90989),
+  createData(13286564, 'Computer Accessories', 100, 83348),
+  createData(86739658, 'Stream Deck', 99, 410780),
+  createData(13256498, 'Keyboard', 125, 70999),
+  createData(98753263, 'Mouse', 89, 10570),
+  createData(98753275, 'Desktop', 185, 98063),
+  createData(98753291, 'Gaming Chair', 100, 14001),
+  createData(86739658, 'Stream Deck', 99, 410780),
+  createData(13256498, 'Keyboard', 125, 70999),
+  createData(98753263, 'Mouse', 89, 10570),
+  createData(98753275, 'Desktop', 185, 98063),
+  createData(98753291, 'Gaming Chair', 100, 14001),
+  createData(84564564, 'Rog Web Cam', 40, 40570),
+  createData(98764564, 'Laptop', 300, 180139),
+  createData(98756325, 'Mobile', 355, 90989),
+  createData(98652366, 'Headset', 50, 10239),
+  createData(13286564, 'Computer Accessories', 100, 83348)
 
 ];
 
@@ -92,12 +90,6 @@ const headCells = [
     label: 'Total Order',
   },
   {
-    id: 'carbs',
-    align: 'left',
-    disablePadding: false,
-    label: 'Status',
-  },
-  {
     id: 'protein',
     align: 'right',
     disablePadding: false,
@@ -105,40 +97,6 @@ const headCells = [
   },
 ];
 
-const OrderStatus = ({ status }) => {
-  let color;
-  let title;
-
-  switch (status) {
-    case 0:
-      color = 'warning';
-      title = 'Pending';
-      break;
-    case 1:
-      color = 'success';
-      title = 'Delivered';
-      break;
-    case 2:
-      color = 'error';
-      title = 'Cancelled';
-      break;
-    default:
-      color = 'primary';
-      title = 'None';
-      break;
-  };
-
-  return (
-    <Stack direction="row" spacing={1} alignItems="center">
-      <Dot color={color} />
-      <Typography>{title}</Typography>
-    </Stack>
-  );
-};
-
-OrderStatus.propTypes = {
-  status: PropTypes.number,
-};
 
 const OrderTable = () => {
   const paginationStyle = `
@@ -263,9 +221,6 @@ const OrderTable = () => {
                 <TableCell>{row.trackingNo}</TableCell>
                 <TableCell>{row.name}</TableCell>
                 <TableCell align="right">{row.fat}</TableCell>
-                <TableCell>
-                  <OrderStatus status={row.carbs} />
-                </TableCell>
                 <TableCell align="right">
                   <NumericFormat
                     value={row.protein}

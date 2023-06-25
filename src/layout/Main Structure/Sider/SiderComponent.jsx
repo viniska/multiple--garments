@@ -1,19 +1,10 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
-import { DashboardTwoTone, AppstoreTwoTone, AlignLeftOutlined, LoginOutlined } from '@ant-design/icons';
+import { DashboardTwoTone, AppstoreTwoTone } from '@ant-design/icons';
 
 const { Sider } = Layout;
 
-const SiderComponent = ({ collapsed, handleMenuItemClick }) => {
-  const handleClick = ({ key }) => {
-    if (key === '/login') {
-      window.open('/login', '_blank');
-    } else if (key === '/register') {
-      window.open('/register', '_blank');
-    } else {
-      handleMenuItemClick(key);
-    }
-  };
+const SiderComponent = ({ collapsed }) => {
 
   const menuItems = [
     {
@@ -26,16 +17,6 @@ const SiderComponent = ({ collapsed, handleMenuItemClick }) => {
       icon: <AppstoreTwoTone />,
       label: 'AppForm',
     },
-    {
-      key: "/login",
-      icon: <LoginOutlined />,
-      label: 'Login',
-    },
-    {
-      key: "/register",
-      icon: <AlignLeftOutlined />,
-      label: 'Register',
-    },
   ];
 
   return (
@@ -43,7 +24,7 @@ const SiderComponent = ({ collapsed, handleMenuItemClick }) => {
       <br />
       <br />
       <br />
-      <Menu theme="light" mode="inline" defaultSelectedKeys={['1']} onClick={handleClick}>
+      <Menu theme="light" mode="inline" defaultSelectedKeys={['1']}>
         {menuItems.map(item => (
           <Menu.Item key={item.key} icon={item.icon}>
             {item.label}

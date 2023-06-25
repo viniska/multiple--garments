@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Typography,
-  Toolbar,
   Container,
   Grid,
   Card,
@@ -25,7 +24,6 @@ const url2 = 'https://www.cnet.com/a/img/resize/e5a0585d8e3cea048a4676f5fd9ba665
 const DashboardComponent = () => {
   return (
     <>
-      <Toolbar />
       <Container maxWidth="lg">
         <Content>
           <Typography variant="h4" component="h1">

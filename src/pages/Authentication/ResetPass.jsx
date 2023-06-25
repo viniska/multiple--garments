@@ -36,7 +36,7 @@ function ResetPass() {
               placeholder="new password"
               sx={{ width: 250 }}
             ></TextField>
-            <br/>
+            <br />
             <Typography variant="h2"> Confirm Password</Typography>
             <TextField
               placeholder="confirm password"
@@ -50,7 +50,7 @@ function ResetPass() {
                 width: 250,
                 border: "0.1px solid black",
               }}
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/")}
             >
               Reset Password
             </Button>

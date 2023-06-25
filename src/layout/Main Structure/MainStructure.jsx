@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Layout } from 'antd';
 import { UpOutlined } from '@ant-design/icons';
 import { Fab } from '@mui/material';
-import Content from '../../pages/Content';
-import AppForm from '../../pages/Application Form/AppForm';
+import Content from '../../UserPage/Content';
+import Branch from '../../UserPage/UserList/Branch/Branch';
 
 import HeaderComponent from './Header/HeaderComponent';
 import SiderComponent from './Sider/SiderComponent';
@@ -30,7 +30,7 @@ const MainStructure = () => {
   };
 
   const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
+    setCollapsed((prevState) => !prevState);
   };
 
   const handleMenuItemClick = (path) => {
@@ -45,11 +45,15 @@ const MainStructure = () => {
     <Layout style={{ minHeight: '100vh' }}>
       <SiderComponent collapsed={collapsed} handleMenuItemClick={handleMenuItemClick} />
       <Layout>
-        <HeaderComponent collapsed={collapsed} toggleCollapsed={toggleCollapsed} handleAccountClick={handleAccountClick} />
+        <HeaderComponent
+          collapsed={collapsed}
+          toggleCollapsed={toggleCollapsed}
+          handleAccountClick={handleAccountClick}
+        />
         <Layout style={{ marginLeft: collapsed ? 80 : 200, minHeight: '100vh', marginTop: 64, marginBottom: 0 }}>
           <AntdContent className="content" style={{ margin: '24px 16px', padding: 24, background: 'white', overflowY: 'auto' }}>
             {selectedMenuItem === '/dashboard' && <Content />}
-            {selectedMenuItem === '/appform' && <AppForm />}
+            {selectedMenuItem === '/branch' && <Branch />}
           </AntdContent>
           <Footer style={{ textAlign: 'center' }}>
             It is Under Construction®

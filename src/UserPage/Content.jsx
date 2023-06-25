@@ -1,12 +1,12 @@
 import React from "react";
-import DashboardCard from "./PageDashboard/DashboardCard";
-import RecentOrders from "./PageDashboard/RecentOrders";
+import UserList from "./UserList/UserList";
+// import RecentOrders from "./UserList/RecentOrders";
 
 const Content = () => {
   return (
     <>
-      <DashboardCard />
-      <RecentOrders />
+      <UserList />
+      {/* <RecentOrders /> */}
       {/* {Array.from({ length: 100 }, (_, index) => (
         <React.Fragment key={index}>
           <br />

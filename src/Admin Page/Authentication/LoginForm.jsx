@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 import React, { useState } from "react";
-import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Form, FormikProvider, useFormik } from "formik";
 import PersonIcon from "@mui/icons-material/Person";
 import LockIcon from "@mui/icons-material/Lock";
@@ -84,59 +84,59 @@ const LoginForm = ({ setAuth }) => {
             initial={{ opacity: 0, y: 40 }}
             animate={animate}
           >
-             <Stack
-            component={motion.div}
-            initial={{ opacity: 0, y: 60 }}
-            animate={animate}
-            direction={{ xs: "column", sm: "row" }}
-          >
-            <PersonIcon
-              sx={{ fontSize: 35, marginTop: 1, marginRight: 1 }}
-            ></PersonIcon>
-            <TextField
-              fullWidth
-              autoComplete="username"
-              type="email"
-              label="Email Address"
-              {...getFieldProps("email")}
-              error={Boolean(touched.email && errors.email)}
-              helperText={touched.email && errors.email}
-            />
-              </Stack>
+            <Stack
+              component={motion.div}
+              initial={{ opacity: 0, y: 60 }}
+              animate={animate}
+              direction={{ xs: "column", sm: "row" }}
+            >
+              <PersonIcon
+                sx={{ fontSize: 35, marginTop: 1, marginRight: 1 }}
+              ></PersonIcon>
+              <TextField
+                fullWidth
+                autoComplete="username"
+                type="email"
+                label="Email Address"
+                {...getFieldProps("email")}
+                error={Boolean(touched.email && errors.email)}
+                helperText={touched.email && errors.email}
+              />
+            </Stack>
 
-              <Stack
-            component={motion.div}
-            initial={{ opacity: 0, y: 40 }}
-            animate={animate}
-            direction={{ xs: "column", sm: "row" }}
-          >
-            <LockIcon
-              sx={{ fontSize: 35, marginTop: 1, marginRight: 1 }}
-            ></LockIcon>
-            <TextField
-              fullWidth
-              autoComplete="current-password"
-              type={showPassword ? "text" : "password"}
-              label="Password"
-              {...getFieldProps("password")}
-              error={Boolean(touched.password && errors.password)}
-              helperText={touched.password && errors.password}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton
-                      onClick={() => setShowPassword((prev) => !prev)}
-                    >
-                      {showPassword ? (
-                        <Icon icon="eva:eye-fill" />
-                      ) : (
-                        <Icon icon="eva:eye-off-fill" />
-                      )}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-            />
+            <Stack
+              component={motion.div}
+              initial={{ opacity: 0, y: 40 }}
+              animate={animate}
+              direction={{ xs: "column", sm: "row" }}
+            >
+              <LockIcon
+                sx={{ fontSize: 35, marginTop: 1, marginRight: 1 }}
+              ></LockIcon>
+              <TextField
+                fullWidth
+                autoComplete="current-password"
+                type={showPassword ? "text" : "password"}
+                label="Password"
+                {...getFieldProps("password")}
+                error={Boolean(touched.password && errors.password)}
+                helperText={touched.password && errors.password}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={() => setShowPassword((prev) => !prev)}
+                      >
+                        {showPassword ? (
+                          <Icon icon="eva:eye-fill" />
+                        ) : (
+                          <Icon icon="eva:eye-off-fill" />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
             </Stack>
           </Box>
 
@@ -178,7 +178,7 @@ const LoginForm = ({ setAuth }) => {
               type="submit"
               variant="contained"
               loading={isSubmitting}
-              onClick={()=>navigate("/dashboard")}
+              onClick={() => navigate("/dashboard")}
             >
               {isSubmitting ? "loading..." : "Login"}
             </LoadingButton>

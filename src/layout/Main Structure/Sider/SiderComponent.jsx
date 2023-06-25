@@ -1,21 +1,24 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
-import { DashboardTwoTone, AppstoreTwoTone } from '@ant-design/icons';
+import { HddTwoTone, ShopTwoTone } from '@ant-design/icons';
 
 const { Sider } = Layout;
 
-const SiderComponent = ({ collapsed }) => {
+const SiderComponent = ({ collapsed, handleMenuItemClick }) => {
+  const handleClick = ({ key }) => {
+      handleMenuItemClick(key);
+    }
 
   const menuItems = [
     {
       key: "/dashboard",
-      icon: <DashboardTwoTone />,
-      label: 'Dashboard',
+      icon: <HddTwoTone style={{ fontSize: '19px' }} />,
+      label: 'UserList',
     },
     {
-      key: "/appform",
-      icon: <AppstoreTwoTone />,
-      label: 'AppForm',
+      key: "/branch",
+      icon: <ShopTwoTone style={{ fontSize: '19px' }} />,
+      label: 'Branch',
     },
   ];
 
@@ -24,7 +27,7 @@ const SiderComponent = ({ collapsed }) => {
       <br />
       <br />
       <br />
-      <Menu theme="light" mode="inline" defaultSelectedKeys={['1']}>
+      <Menu theme="light" mode="inline" defaultSelectedKeys={['1']} onClick={handleClick} style={{ fontSize: '15px' }}>
         {menuItems.map(item => (
           <Menu.Item key={item.key} icon={item.icon}>
             {item.label}

@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from './Admin Page/Authentication/Login';
+import ForgotPass from './Admin Page/Authentication/ForgotPass';
+import ResetPass from './Admin Page/Authentication/ResetPass';
 import Dashboard from './layout/Main Layout/Dashboard';
-import Login from './pages/Authentication/Login';
-import ForgotPass from './pages/Authentication/ForgotPass';
-import ResetPass from './pages/Authentication/ResetPass';
 import { CssBaseline } from "@mui/material";
 
 
@@ -18,8 +18,8 @@ function App() {
       <CssBaseline />
       <Routes>
         {/* <Route exact path="/" element={<Dashboard />} /> */}
-        <Route path="/dashboard" element={<Dashboard />} />
         <Route path='/' element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         {/* <Route
           path="/"
           element={

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
-import { HddTwoTone, ShopTwoTone } from '@ant-design/icons';
+import { HddTwoTone, ShopTwoTone ,UserOutlined } from '@ant-design/icons';
 
 const { Sider } = Layout;
 
@@ -19,6 +19,11 @@ const SiderComponent = ({ collapsed, handleMenuItemClick }) => {
       key: "/branch",
       icon: <ShopTwoTone style={{ fontSize: '19px' }} />,
       label: 'Branch',
+    },
+    {
+      key: "/userrole",
+      icon: <UserOutlined  style={{ fontSize: '19px' }} />,
+      label: 'User-role',
     },
   ];
 

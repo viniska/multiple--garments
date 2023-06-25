@@ -4,6 +4,7 @@ import { UpOutlined } from '@ant-design/icons';
 import { Fab } from '@mui/material';
 import Content from '../../UserPage/Content';
 import Branch from '../../UserPage/Branch/Branch';
+import UserRole from '../../UserPage/UserRole/UserRole';
 
 import HeaderComponent from './Header/HeaderComponent';
 import SiderComponent from './Sider/SiderComponent';
@@ -54,6 +55,7 @@ const MainStructure = () => {
           <AntdContent className="content" style={{ margin: '24px 16px', padding: 24, background: 'white', overflowY: 'auto' }}>
             {selectedMenuItem === '/dashboard' && <Content />}
             {selectedMenuItem === '/branch' && <Branch />}
+            {selectedMenuItem === '/userrole' && <UserRole />}
           </AntdContent>
           <Footer style={{ textAlign: 'center' }}>
             It is Under Construction®
